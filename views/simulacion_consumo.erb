@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<style>
+
+.center {
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    margin-top: 50px;
+    box-shadow: 0.5px 1px 5px 0 #ccc;
+}
+
+.btn-large:hover {
+  background-color: #49974b;
+  color: white
+}
+
+</style>
+</head>
+<body>
+  <div class="center container">
+    <form method="POST" action="/simulacion_BCI_response">
+      <input type="hidden" name="montoAuto" value=<%= params[:montoAuto] %>>
+      <h6>Para simular el crédito con bci, solicitamos que nos proporciones los siguientes datos</h6>
+      <p>Rut: <input type="text" name="rut"></p>
+      <p>Fecha primer vencimiento Cuota <input type="date" min=<%= Date.today %> name="fechaPrimerVencimiento"></p>
+      <p>Financiamiento Solicitado: <input type="text" name="montoCredito" value=<%= params[:montoCredito] %>></p>
+      <p>Número de cuotas: <input type="text" name="cantidadCuotas" value=<%= params[:cantidadCuotas] %>></p>
+      <p>Renta: <input type="text" name="renta"></p>
+      <button class="btn-flat btn-large" type="submit">Simular ahora</button>
+    </form>
+  </div>
+</body>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<style>
+
+.center {
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    margin-top: 50px;
+    box-shadow: 0.5px 1px 5px 0 #ccc;
+}
+
+</style>
+<body class="flow-text center">
+	<p>El monto total con un crédito en BCI es de $<%= consmonto %></p>
+	<p>Mientras que el monto con el crédito automotriz es de $<%= consauto %></p>
+	<% if Integer(consauto) < Integer(consmonto) %>
+		Por lo que no conviene tomar el crédito con BCI
+	<% else %>
+		Por lo que si conviene tomar el crédito con BCI
+	<% end %>
+</body>
