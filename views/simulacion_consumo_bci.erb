@@ -14,12 +14,38 @@
 }
 
 </style>
-<body class="flow-text center">
-	<p>El monto total con un crédito en BCI es de $<%= consmonto %></p>
-	<p>Mientras que el monto con el crédito automotriz es de $<%= consauto %></p>
-	<% if Integer(consauto) < Integer(consmonto) %>
-		Por lo que no conviene tomar el crédito con BCI
-	<% else %>
-		Por lo que si conviene tomar el crédito con BCI
-	<% end %>
+<body class="center">
+  <p>El monto total con un crédito en BCI es de $<%= cmnt %></p>
+  <p>Mientras que el monto con el crédito automotriz es de $<%= amnt %></p>
+  <table class="centered">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Crédito Automotriz</th>
+        <th>Crédito de Consumo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Monto Total</td>
+        <td><%= amnt %></td>
+        <td><%= cmnt %></td>
+      </tr>
+      <tr>
+        <td>CAE</td>
+        <td><%= acae %></td>
+        <td><%= ccae %></td>
+      </tr>
+      <tr>
+        <td>CTC</td>
+        <td><%= actc %></td>
+        <td><%= cctc %></td>
+      </tr>
+    </tbody>
+  </table>
+  <% if Integer(amnt) < Integer(cmnt) %>
+    Por lo que no conviene tomar el crédito con BCI
+  <% else %>
+    Por lo que si conviene tomar el crédito con BCI
+  <% end %>
 </body>
