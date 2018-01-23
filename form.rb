@@ -8,14 +8,6 @@ get '/' do
   "Hola mundo"
 end
 
-get '/form' do
-  form_tag do
-    label_tag(:my_name, "My name is:")
-    text_field_tag(:my_name)
-    submit_tag("Process")
-  end
-end
-
 get '/simulacion' do
   erb :simulacion_consumo
 end
