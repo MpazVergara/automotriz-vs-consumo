@@ -1,5 +1,5 @@
 ruby '2.3.3'
 source 'https://rubygems.org'
-gem 'bci'#, :github => 'mpazvergara/SDKBCI_Ruby'
+gem 'bci'
 gem 'sinatra'
 gem 'puma'
