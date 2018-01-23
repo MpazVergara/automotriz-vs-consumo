@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html class="back-form">
 <head>
+  <title>Simulación Crédito de Consumo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<style>
-
-.center {
-    width: 400px;
-    margin: 0 auto;
-    padding: 30px;
-    background: #fff;
-    margin-top: 50px;
-    box-shadow: 0.5px 1px 5px 0 #ccc;
-}
-
-</style>
+  <link rel="stylesheet" href="<%= url("/automotriz.css")%>" type="text/css">
 <body class="center">
+  <h5>Simula un Crédito de Consumo y compáralo con tu Crédito Automotriz</h5>
+  <p></p>
   <p>El monto total con un crédito en BCI es de $<%= cmnt %></p>
   <p>Mientras que el monto con el crédito automotriz es de $<%= amnt %></p>
+  <p>A continuación se muesta una tabla comparativa:</p>
   <table class="centered">
     <thead>
       <tr>
