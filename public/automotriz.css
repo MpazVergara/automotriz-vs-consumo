@@ -1,0 +1,21 @@
+.center {
+  width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #fff;
+  margin-top: 50px;
+  box-shadow: 0.5px 1px 5px 0 #ccc;
+}
+
+.btn-large:hover {
+  background-color: #49974b;
+  color: white
+}
+
+.no-margin{
+  margin-top: 0px;
+}
+
+.back-form{
+  background: -webkit-gradient(linear,left bottom,right 690,from(#fbd2a8),to(#2355e43d));
+}
