@@ -17,6 +17,13 @@
         numero.value = numero.value.replace(/[^\d\.]*/g,"");
       }
     }
+    function solonum(numero){
+      var num = numero.value.replace(/\.*\,/g,"");
+      if(isNaN(num)){
+        alert("Ingresar solo numeros");
+        numero.value = numero.value.replace(/[^\d\.\,]*/g,"");
+      }
+    }
   </script>
 </head>
 <body>
@@ -38,7 +45,7 @@
       </div>
       <div class="row">
         <div class="input-field col s5">
-          <input placeholder="Número de Cuotas" type="text" name="cantidadCuotas" required>
+          <input placeholder="Número de Cuotas" onkeyup="solonum(this)" type="text" name="cantidadCuotas" required>
         </div>
         <div class="input-field col s7">
           <input placeholder="Valor Cuota Crédito Automotriz" onkeyup="miles(this)" type="text" name="valcuota" required>
@@ -46,7 +53,7 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Cae Crédito Automotriz" type="text" name="ACAE" required>
+          <input placeholder="Cae Crédito Automotriz" onkeyup="solonum(this)" type="text" name="ACAE" required>
         </div>
         <div class="input-field col s6">
           <input placeholder="Ctc Crédito Automotriz" onkeyup="miles(this)" type="text" name="Actc">
