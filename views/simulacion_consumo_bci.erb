@@ -21,8 +21,8 @@
     <tbody>
       <tr>
         <td>Monto Total</td>
-        <td><%= amnt %></td>
-        <td><%= cmnt %></td>
+        <td>$<%= amnt %></td>
+        <td>$<%= cmnt %></td>
       </tr>
       <tr>
         <td>CAE</td>
@@ -36,9 +36,10 @@
       </tr>
     </tbody>
   </table>
-  <% if Integer(amnt) < Integer(cmnt) %>
-    Por lo que no conviene tomar el crédito con BCI
+  <p></p>
+  <% if comp<0 %>
+    <p>Por lo que no conviene tomar el crédito con BCI</p>
   <% else %>
-    Por lo que si conviene tomar el crédito con BCI
+    <p>Por lo que si conviene tomar el crédito con BCI</p>
   <% end %>
 </body>
