@@ -1,40 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html class="back-form">
 <head>
+  <title>Simulación Crédito de Consumo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" href="<%= url("/automotriz.css")%>" type="text/css">
+  <script>
+    function miles(numero){
+      var num = numero.value.replace(/\./g,"");
+      if(!isNaN(num)){
+        num = num.toString().split("").reverse().join("").replace(/(?=\d*\.?)(\d{3})/g,"$1.");
+        num = num.split("").reverse().join("").replace(/^[\.]/,"");
+        numero.value = num;
+      }
+      else{
+        alert("Ingresar solo numeros");
+        numero.value = numero.value.replace(/[^\d\.]*/g,"");
+      }
+    }
+  </script>
 </head>
 <body>
-  <div class="center container">
+  <div class="center container border">
     <form method="POST" action="/simulacion_BCI">
       <h5>Simula un Crédito de Consumo y compáralo con tu Crédito Automotriz</h5>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Valor Automovil" type="text" name="price" class="validate">
+          <input placeholder="Valor Automovil" onkeyup="miles(this)" type="text" id="price" name="price" required>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Monto Crédito Solicitado" type="text" name="montoCredito" class="validate">
+          <input placeholder="Monto Crédito Solicitado" onkeyup="miles(this)" type="text" name="montoCredito" required>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12 no-margin">
-          <p class="no-margin">Fecha Primer Vencimiento Cuota: <input id="date_payment" type="date" min=<%= Date.today %> name="fechaPrimerVencimiento"></p>
+          <p class="no-margin">Fecha Vencimiento Primera Cuota: <input type="date" min=<%= Date.today %> name="fechaPrimerVencimiento" required></p>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s5">
-          <input placeholder="Número de Cuotas" type="text" name="cantidadCuotas" class="validate">
+          <input placeholder="Número de Cuotas" type="text" name="cantidadCuotas" required>
         </div>
         <div class="input-field col s7">
-          <input placeholder="Valor Cuota Crédito Automotriz" type="text" name="valcuota" class="validate">
+          <input placeholder="Valor Cuota Crédito Automotriz" onkeyup="miles(this)" type="text" name="valcuota" required>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Cae Crédito Automotriz" type="text" name="ACAE">
+          <input placeholder="Cae Crédito Automotriz" type="text" name="ACAE" required>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Ctc Crédito Automotriz" type="text" name="Actc">
+          <input placeholder="Ctc Crédito Automotriz" onkeyup="miles(this)" type="text" name="Actc">
         </div>
       </div>
       <button class="btn-flat btn-large" type="submit">Simula tu crédito con BCI</button>
