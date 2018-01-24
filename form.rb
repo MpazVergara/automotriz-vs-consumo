@@ -2,18 +2,17 @@ require 'sinatra'
 require 'bci'
 require 'date'
 
+def separador_miles(numero)
+  numero = String(numero).gsub(/\./,"")
+  numero = numero.reverse!.gsub(/(?=\d*\.?)(\d{3})/){$1+'.'}
+  numero = numero.reverse!.gsub(/^[\.]/,"")
+  return numero
+end
+
 BCI = Bci::Client.new({ key: ENV['BCI_API_KEY'] })
 
 get '/' do
   "Hola mundo"
-end
-
-get '/form' do
-  form_tag do
-    label_tag(:my_name, "My name is:")
-    text_field_tag(:my_name)
-    submit_tag("Process")
-  end
 end
 
 get '/simulacion' do
@@ -21,14 +20,10 @@ get '/simulacion' do
 end
 
 post '/simulacion_BCI' do
-  params["Amnt"]=Integer(params[:valcuota])*Integer(params[:cantidadCuotas])
-  params["rut"],params["dv"],params["renta"]=["77777777","7","200000"]
-  params.to_s
+  params["rut"],params["dv"],params["renta"],params["montoCredito"]=["77777777","7","200000",params["montoCredito"].gsub(/\./,'')]
+  puts params
   cons = BCI.consumo.simulate("1",params)
-  print params["ACAE"]
-  print cons
-  cons.to_s
   erb :simulacion_consumo_bci, :locals => {
-    :acae => params["ACAE"], :amnt => params["Amnt"], :actc => params["Actc"],
-    :cmnt => cons["montoCredito"], :ccae => cons["montoCae"], :cctc => cons["montoCtc"]}
+    :amnt => separador_miles(params["valcuota"]),
+    :cmnt => separador_miles(cons["montoCuota"])}
 end
