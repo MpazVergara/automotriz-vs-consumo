@@ -20,11 +20,10 @@ get '/simulacion' do
 end
 
 post '/simulacion_BCI' do
-  params["Amnt"]=Integer(params[:valcuota].sub(/\./,''))*Integer(params[:cantidadCuotas].sub(/\./,''))
-  params["rut"],params["dv"],params["renta"],params["montoCredito"]=["77777777","7","200000",params["montoCredito"].sub(/\./,'')]
+  params["rut"],params["dv"],params["renta"],params["montoCredito"]=["77777777","7","200000",params["montoCredito"].gsub(/\./,'')]
+  puts params
   cons = BCI.consumo.simulate("1",params)
-  comparacion=Integer(params["Amnt"]) - Integer(cons["montoCredito"])
-  erb :simulacion_consumo_bci, :locals => { :comp => comparacion,
-    :amnt => separador_miles(params["Amnt"]), :acae => String(params["ACAE"]).sub(/\./,','), :actc => params["Actc"],
-    :cmnt => separador_miles(cons["montoCredito"]), :ccae => String(cons["montoCae"]).gsub(/\./,','), :cctc => separador_miles(cons["montoCtc"])}
+  erb :simulacion_consumo_bci, :locals => {
+    :amnt => separador_miles(params["valcuota"]),
+    :cmnt => separador_miles(cons["montoCuota"])}
 end

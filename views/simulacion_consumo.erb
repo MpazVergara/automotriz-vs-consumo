@@ -29,17 +29,13 @@
 <body>
   <div class="center container border">
     <form method="POST" action="/simulacion_BCI">
-      <h5>Simula un Crédito de Consumo y compáralo con tu Crédito Automotriz</h5>
+      <h5><b>Simula un Crédito de Consumo y compáralo con tu Crédito Automotriz</b></h5>
+      <div class="row"></div>
       <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Valor Automovil" onkeyup="miles(this)" type="text" id="price" name="price" required>
-        </div>
-        <div class="input-field col s6">
+        <div class="input-field col s5">
           <input placeholder="Monto Crédito Solicitado" onkeyup="miles(this)" type="text" name="montoCredito" required>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 no-margin">
+        <div class="no-margin input-field col s7">
           <p class="no-margin">Fecha Vencimiento Primera Cuota: <input type="date" min=<%= Date.today %> name="fechaPrimerVencimiento" required></p>
         </div>
       </div>
@@ -49,14 +45,6 @@
         </div>
         <div class="input-field col s7">
           <input placeholder="Valor Cuota Crédito Automotriz" onkeyup="miles(this)" type="text" name="valcuota" required>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Cae Crédito Automotriz" onkeyup="solonum(this)" type="text" name="ACAE" required>
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="Ctc Crédito Automotriz" onkeyup="miles(this)" type="text" name="Actc">
         </div>
       </div>
       <button class="btn-flat btn-large" type="submit">Simula tu crédito con BCI</button>
