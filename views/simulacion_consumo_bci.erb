@@ -4,6 +4,7 @@
   <title>Compara tu Crédito Automotriz</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" href="<%= url("/style.css")%>" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <body class="center container border">
   <h5><b>Compara tu Crédito Automotriz</b></h5>
   <h5><b>con uno de BCI</b></h5>
@@ -12,31 +13,34 @@
   <p>Mientras que el valor de la cuota con el crédito automotriz es de $<%= amnt %></p>
   <p></p>
   <% if amnt < cmnt %>
-    <table>
+    <table class="centered">
       <thead>
         <tr>
             <th></th>
-            <th class="marcar">Crédito Automotriz</th>
-            <th>Crédito de Consumo</th>
+            <th class="marcar"><i class="right small material-icons" style="color: green;">check</i></th>
+            <th class="marcar"><div class="left">Crédito Automotriz</div></th>
+            <th>Crédito <object class="img" type="image/svg+xml" data="<%= url("/logo-bci.svg")%>"></object></th>
         </tr>
       </thead>
 
       <tbody>
         <tr>
           <td>Valor Cuota</td>
-          <td class="marcar"><%= amnt %></td>
+          <td class="marcar"></td>
+          <td class="marcar"><div class="left"><%= amnt %></div></td>
           <td><%= cmnt %></td>
         </tr>
       </tbody>
     </table>
     <font size="4"><b>Por lo que no conviene tomar el crédito con BCI</b></font>
   <% else %>
-    <table>
+    <table class="centered">
       <thead>
         <tr>
             <th></th>
             <th>Crédito Automotriz</th>
-            <th class="marcar">Crédito de Consumo</th>
+            <th class="marcar"><i class="right small material-icons" style="color: green;">check</i></th>
+            <th class="marcar"><div class="left">Crédito <object class="img" type="image/svg+xml" data="<%= url("/logo-bci.svg")%>"></object></div></th>
         </tr>
       </thead>
 
@@ -44,7 +48,8 @@
         <tr>
           <td>Valor Cuota</td>
           <td><%= amnt %></td>
-          <td class="marcar"><%= cmnt %></td>
+          <td class="marcar"></td>
+          <td class="marcar"><div class="left"><%= cmnt %></div></td>
         </tr>
       </tbody>
     </table>
