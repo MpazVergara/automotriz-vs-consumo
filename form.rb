@@ -12,7 +12,7 @@ end
 BCI = Bci::Client.new({ key: ENV['BCI_API_KEY'] })
 
 get '/' do
-  "Hola mundo"
+  markdown File.read("README.md")
 end
 
 get '/simulacion' do
