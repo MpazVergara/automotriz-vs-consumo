@@ -21,7 +21,6 @@ end
 
 post '/simulacion_BCI' do
   params["rut"],params["dv"],params["renta"],params["montoCredito"]=["77777777","7","200000",params["montoCredito"].gsub(/\./,'')]
-  puts params
   cons = BCI.consumo.simulate("1",params)
   erb :simulacion_consumo_bci, :locals => {
     :amnt => separador_miles(params["valcuota"]),
