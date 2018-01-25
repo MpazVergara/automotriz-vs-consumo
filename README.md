@@ -4,7 +4,7 @@ Realiza una comparación entre el Crédito de Consumo que ofrece BCI y el Crédi
 
 ## Realiza la comparación
 
-[Ingresar al simulador](https://form-cautomotriz-vs-cconsumo.herokuapp.com/simulacion)
+[Ingresar al simulador](https://form-compare.herokuapp.com/simulacion)
 
 
 ## Para Comenzar
