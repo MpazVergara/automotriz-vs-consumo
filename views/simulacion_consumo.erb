@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="back-form">
 <head>
-  <title>Simulación Crédito de Consumo</title>
+  <title>Compara tu Crédito Automotriz</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" href="<%= url("/automotriz.css")%>" type="text/css">
   <script>
@@ -29,25 +29,34 @@
 <body>
   <div class="center container border">
     <form method="POST" action="/simulacion_BCI">
-      <h5><b>Simula un Crédito de Consumo y compáralo con tu Crédito Automotriz</b></h5>
+      <h5 class="no-margin"><b>Compara tu Crédito Automotriz</b></h5>
+      <h5 class="no-margin"><b>con uno de BCI</b></h5>
+      <h6>A continuación ingresa los datos de tu Crédito Automotriz</h6>
       <div class="row"></div>
       <div class="row">
-        <div class="input-field col s5">
-          <input placeholder="Monto Crédito Solicitado" onkeyup="miles(this)" type="text" name="montoCredito" required>
+        <div class="input-field col s12">
+          <input placeholder="Monto Crédito Solicitado" id="montoCredito" onkeyup="miles(this)" type="text" name="montoCredito" required>
+          <label class="active" for="montoCredito">Monto del Crédito Solicitado</label>
         </div>
-        <div class="no-margin input-field col s7">
+      </div>
+      <div class="row">
+        <div class="no-margin input-field col s12">
           <p class="no-margin">Fecha Vencimiento Primera Cuota: <input type="date" min=<%= Date.today %> name="fechaPrimerVencimiento" required></p>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s5">
-          <input placeholder="Número de Cuotas" onkeyup="solonum(this)" type="text" name="cantidadCuotas" required>
-        </div>
-        <div class="input-field col s7">
-          <input placeholder="Valor Cuota Crédito Automotriz" onkeyup="miles(this)" type="text" name="valcuota" required>
+        <div class="no-margin input-field col s12">
+          <input placeholder="Número de Cuotas" id="cantidadCuotas" onkeyup="solonum(this)" type="text" name="cantidadCuotas" required>
+          <label class="active" for="cantidadCuotas">Número de Cuotas</label>
         </div>
       </div>
-      <button class="btn-flat btn-large" type="submit">Simula tu crédito con BCI</button>
+      <div class="row">
+        <div class="no-margin input-field col s12">
+          <input placeholder="Valor Cuota" id="valcuota" onkeyup="miles(this)" type="text" name="valcuota" required>
+          <label class="active" for="valcuota">Valor Cuota</label>
+        </div>
+      </div>
+      <button class="btn-large" type="submit">Realizar comparación</button>
     </form>
   </div>
 </body>

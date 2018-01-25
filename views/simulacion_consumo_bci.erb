@@ -1,18 +1,53 @@
 <!DOCTYPE html>
 <html class="back-form">
 <head>
-  <title>Simulación Crédito de Consumo</title>
+  <title>Compara tu Crédito Automotriz</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" href="<%= url("/automotriz.css")%>" type="text/css">
-<body class="center">
-  <h5><b>Simula un Crédito de Consumo y compáralo con tu Crédito Automotriz</b></h5>
+<body class="center container border">
+  <h5><b>Compara tu Crédito Automotriz</b></h5>
+  <h5><b>con uno de BCI</b></h5>
   <div class="row"></div>
   <p>El valor de la cuota con un crédito en BCI es de $<%= cmnt %></p>
   <p>Mientras que el valor de la cuota con el crédito automotriz es de $<%= amnt %></p>
   <p></p>
   <% if amnt < cmnt %>
+    <table>
+      <thead>
+        <tr>
+            <th></th>
+            <th class="marcar">Crédito Automotriz</th>
+            <th>Crédito de Consumo</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Valor Cuota</td>
+          <td class="marcar"><%= amnt %></td>
+          <td><%= cmnt %></td>
+        </tr>
+      </tbody>
+    </table>
     <font size="4"><b>Por lo que no conviene tomar el crédito con BCI</b></font>
   <% else %>
+    <table>
+      <thead>
+        <tr>
+            <th></th>
+            <th>Crédito Automotriz</th>
+            <th class="marcar">Crédito de Consumo</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Valor Cuota</td>
+          <td><%= amnt %></td>
+          <td class="marcar"><%= cmnt %></td>
+        </tr>
+      </tbody>
+    </table>
     <font size="4"><b>Por lo que si conviene tomar el crédito con BCI</b></font>
   <% end %>
 </body>
