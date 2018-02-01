@@ -11,10 +11,6 @@ end
 
 BCI = Bci::Client.new({ key: ENV['BCI_API_KEY'] })
 
-get '/' do
-  markdown File.read("README.md")
-end
-
 get '/simulacion' do
   erb :simulacion_consumo
 end
