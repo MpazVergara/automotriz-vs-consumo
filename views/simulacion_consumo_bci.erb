@@ -9,10 +9,10 @@
   <h5 class="no-margin"><b>Compara tu Crédito Automotriz</b></h5>
   <h5 class="no-margin"><b>con uno de BCI</b></h5>
   <div class="row"></div>
-  <p>El valor de la cuota con un crédito en BCI es de $<%= cmnt %></p>
-  <p>Mientras que el valor de la cuota con el crédito automotriz es de $<%= amnt %></p>
+  <p>El valor de la cuota con un crédito en BCI es de $<%= monto_credito_consumo %></p>
+  <p>Mientras que el valor de la cuota con el crédito automotriz es de $<%= monto_credito_automtriz %></p>
   <p></p>
-  <% if amnt < cmnt %>
+  <% if monto_credito_automtriz < monto_credito_consumo %>
     <table class="centered">
       <thead>
         <tr>
@@ -27,8 +27,8 @@
         <tr>
           <td>Valor Cuota</td>
           <td class="marcar"></td>
-          <td class="marcar"><div class="left"><%= amnt %></div></td>
-          <td><%= cmnt %></td>
+          <td class="marcar"><div class="left"><%= monto_credito_automtriz %></div></td>
+          <td><%= monto_credito_consumo %></td>
         </tr>
       </tbody>
     </table>
@@ -47,9 +47,9 @@
       <tbody>
         <tr>
           <td>Valor Cuota</td>
-          <td><%= amnt %></td>
+          <td><%= monto_credito_automtriz %></td>
           <td class="marcar"></td>
-          <td class="marcar"><div class="left"><%= cmnt %></div></td>
+          <td class="marcar"><div class="left"><%= monto_credito_consumo %></div></td>
         </tr>
       </tbody>
     </table>
